@@ -191,11 +191,3 @@ B.Tech CSE Student
 Python & Django Developer
 
 ---
-
-# ⭐ Support
-
-<<<<<<< HEAD
-If you like this project, give it a ⭐ on GitHub.
-=======
-If you like this project, give it a ⭐ on GitHub.
->>>>>>> 4ee96e934b71864fb7756e5d2d82c31b971159f4
