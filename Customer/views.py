@@ -6,7 +6,7 @@ from Admin.models import *
 import decorators
 
 # Create your views here.
-@decorators.login_required_role('admin')
+@decorators.login_required_role('customer')
 def customerhome(request):
     email = request.session.get('email')
     customer = Customer.objects.filter(email=email).first()
