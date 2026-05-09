@@ -27,8 +27,6 @@ SECRET_KEY = 'django-insecure-i779bvxg230!lwn##!3tjoe*30(6dyp%sv*=^h41gpa05_7#2p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -125,3 +123,9 @@ STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+ALLOWED_HOSTS = [
+    'django-chatbot-web-app.onrender.com',
+    '127.0.0.1',
+    'localhost',
+]
