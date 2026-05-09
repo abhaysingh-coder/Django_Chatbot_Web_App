@@ -17,10 +17,10 @@ def Loginhome(request):
         password = request.POST.get('password')
         try:
             if role == 'admin':
-                # user = AdminRegistration.objects.get(email=email, password=password)
-                # request.session['admin_email'] = user.email
-                # request.session['email'] = user.email
-                # request.session['role'] = role
+                user = AdminRegistration.objects.get(email=email, password=password)
+                request.session['admin_email'] = user.email
+                request.session['email'] = user.email
+                request.session['role'] = role
                 return redirect('Admin:adminhome')
             elif role == 'customer':
                 user = Customer.objects.get(email=email, password=password)
@@ -73,7 +73,7 @@ def signuphome(request):
         elif role == 'customer':
             database = Customer
         elif role == 'admin':
-            database = AdminRequest
+            database = AdminRegistration
 
         if database.objects.filter(username=username).exists():
             return render(request, 'signup.html', {'message': 'Username already exists'})
