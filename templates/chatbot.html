@@ -1,0 +1,63 @@
+<div class="container-fluid mx-auto">
+    <div class="row">
+        <div class="col-sm-7 card mx-auto my-4 p-4" style="background-color: rgba(0, 213, 255, 0.2);">
+            <div class="row">
+                <div class="col-sm-3">
+                    {% load static %}
+                    <img src="{% static 'bot avatar.png' %}" alt="" class="img-fluid h-100 w-100">
+                </div>
+                <div class="col-sm-9 mt-4">
+                    <h3 class="text-primary mb-0 mt-3 text-start">Chat with</h3>
+                    <h2 class="text-primary mb-2 text-start">Chatbot</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="text-primary">We typically Reply in Few Minutes</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    {% if user.is_authenticated %}
+                    <p class="fw-bold m-0" style="color:#0d3b66;">Role: {{ user.role|title }}</p>
+                    <p class="fw-bold m-0" style="color:#0d3b66;">Email: {{ user.email }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row"> 
+                <div class="card-body p-2">
+                    <div id="chatBox" class="border rounded p-2 bg-light" style="height: 259px; scrollbar-width: none; overflow-y: auto;">
+                         {% if messages %}
+                            {% for msg in messages %}
+                                {% if msg.sender == "user" %}
+                                    <div class="text-start mb-2">
+                                        <i class="fa-solid fa-circle-user fa-2xl text-primary" ></i>
+                                        <span class="badge bg-primary">{{ msg.text }}</span>
+                                    </div>
+                                {% else %}
+                                    <div class="text-end mb-2">
+                                        <span class="badge bg-secondary">{{ msg.text }}</span>
+                                        <i class="fa-solid fa-robot fa-2xl text-secondary"></i>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            <p class="text-center fw-bold fst-italic">
+                                Hello How can I help you
+                            </p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <form method="post" class="position-relative">
+                    {% csrf_token %}
+                    <input type="text" name="message" class="form-control rounded-pill border-0 ps-4 pe-5" placeholder="Type your message..." style="height:55px;" required>
+                    <button class="btn btn-primary rounded-circle position-absolute top-50 end-0 translate-middle-y me-4" type="submit">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

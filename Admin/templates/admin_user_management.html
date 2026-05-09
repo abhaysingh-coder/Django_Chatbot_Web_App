@@ -1,0 +1,13 @@
+{% extends "admin_base.html" %}
+{% load static %}
+{% block admin %}
+    <div class="container mt-4">
+        <div class="card border-1 p-4">
+            <h2 class="mb-3">Hello {{ user.username }}</h2>
+            <p class="fs-5 text-muted">
+                Welcome to your User Management dashboard.
+            </p>
+        </div>
+        {% include 'management.html' with role='user' customer=customer %}
+    </div>
+{% endblock %}

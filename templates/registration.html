@@ -1,0 +1,28 @@
+    <div class="card mt-4 border-1 p-4" style="height: 400px; overflow-y: auto; scrollbar-width: none;">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">S.No.</th>
+                    <th scope="col">UserName</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone No.</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for mes in user %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ mes.username }}</td>
+                    <td>{{ mes.Name }}</td>
+                    <td>{{ mes.email }}</td>
+                    <td>{{ mes.phone_number }}</td>
+                    <td>
+                        <a href="{% url 'Admin:delete_user' mes.username role %}" class="btn btn-success btn-sm">Approve</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>

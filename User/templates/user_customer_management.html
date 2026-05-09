@@ -1,0 +1,13 @@
+{% extends 'user_base.html' %}
+{% load static %}
+{% block user %}
+    <div class="container mt-4">
+        <div class="card border-1 p-4">
+            <h2 class="mb-3">Hello {{ user.Name }}</h2>
+            <p class="fs-5 text-muted">
+                Welcome to your Customer Management panel.
+            </p>
+        </div>
+        {% include 'management.html' %}
+    </div>
+{% endblock %}

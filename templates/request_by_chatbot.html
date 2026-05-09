@@ -1,0 +1,32 @@
+<div class="container mt-4">
+        <div class="card border-1 p-4">
+            <h2 class="mb-3">Hello {{ user.Name }}</h2>
+            <p class="fs-5 text-muted">
+                Welcome to your Request by Chatbot panel.
+            </p>
+        </div>
+        <div class="card mt-4 border-1 p-4" style="height: 400px; overflow-y: auto; scrollbar-width: none;">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">S.No.</th>
+                        <th scope="col">Request by User</th>
+                        <th scope="col">Flags</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Request by Chatbot</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for mes in messages %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ mes.Utterance }}</td>
+                        <td>{{ mes.Flags }}</td>
+                        <td>{{ mes.Category }}</td>
+                        <td>{{ mes.Intent }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>

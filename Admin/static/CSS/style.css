@@ -1,0 +1,27 @@
+.scroll-1{
+    height: 613.5px; 
+    scrollbar-width: none; 
+    overflow-y: auto;
+}
+.h-5{
+     height: 50px;
+}
+.h-100p{
+     height:695px !important;
+}
+.bg-1{
+     background-image: linear-gradient(90deg,#00004d,rgb(67, 67, 113));
+     color: white;
+}
+.bg-2:hover{
+     background-color: none;
+}
+.col-sm-0_5{
+     width:4%;
+}
+.col-sm-11_5{
+     width: 96%;
+}
+.fs-small{
+     font-size: small;
+}

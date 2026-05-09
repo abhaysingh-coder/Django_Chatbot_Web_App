@@ -1,0 +1,95 @@
+{% extends "admin_base.html" %}
+{% load static %}
+{% block admin %}
+    <div class="container mt-4">
+        <div class="card border-1 p-4">
+            <h2 class="mb-3">Hello {{ user.username }}</h2>
+            <p class="fs-5 text-muted">
+                Welcome to your Admin dashboard.
+            </p>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <a href="{% url 'Admin:adminrequest' %}" class="text-decoration-none">
+                    <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-user-clock fs-1 mb-3"></i>
+                        <h4>Admin Registration</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a href="{% url 'Admin:registration' %}" class="text-decoration-none">
+                    <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-user-clock fs-1 mb-3"></i>
+                        <h4>User Registration</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <a href="{% url 'Admin:admin_management' %}" class="text-decoration-none">
+                    <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-users-gear fs-1 mb-3"></i>
+                        <h4>Admin Management</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a href="{% url 'Admin:user_management' %}" class="text-decoration-none">
+                    <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-users fs-1 mb-3"></i>
+                        <h4>User Management</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <a href="{% url 'Admin:customer_management' %}" class="text-decoration-none">
+                    <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-user-astronaut fs-1 mb-3"></i>
+                        <h4>Customer Management</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a href="{% url 'Admin:message' %}" class="text-decoration-none">
+                    <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
+                        <i class="fa-regular fa-comments fs-1 mb-3"></i>
+                        <h4>Messages</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <a href="{% url 'Admin:request_by_chatbot' %}" class="text-decoration-none">
+                    <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-code-pull-request fs-1 mb-3"></i>
+                        <h4>Request by Chatbot</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a href="{% url 'Admin:chatbot' %}" class="text-decoration-none">
+                    <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-robot fs-1 mb-3"></i>
+                        <h4>Chatbot</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row mt-4"> 
+            <div class="col-md-6 mx-auto">
+                <a href="{% url 'Admin:admin_profile' %}" class="text-decoration-none">
+                    <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-address-card fs-1 mb-3"></i>
+                        <h4>Profile</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+    </div>
+{% endblock %}
