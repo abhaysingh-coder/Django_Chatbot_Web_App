@@ -185,9 +185,8 @@ Models are trained using:
 
 # 👨‍💻 Author
 
-## Abhay Singh
-
-B.Tech CSE Student  
-Python & Django Developer
+Abhay Singh<br>
+B.Tech CSE Student <br> 
+Python & Django Developer<br>
 
 ---
