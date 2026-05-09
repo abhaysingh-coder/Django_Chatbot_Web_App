@@ -125,3 +125,9 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+ALLOWED_HOSTS = [
+    'django-chatbot-web-app.onrender.com',
+    'localhost',
+    '127.0.0.1',
+]
