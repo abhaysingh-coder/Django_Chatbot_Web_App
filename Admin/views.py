@@ -5,8 +5,10 @@ from .models import *
 from mainapp.models import *
 from User.models import *
 from Customer.models import *
+import decorators
 
 # Create your views here.
+@decorators.login_required_role('admin')
 def adminhome(request):
     return render(request,'admin_home.html')
 

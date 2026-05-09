@@ -3,8 +3,10 @@ from chatbot import *
 from .models import *
 from wordfreq import zipf_frequency
 from Admin.models import *
+import decorators
 
 # Create your views here.
+@decorators.login_required_role('admin')
 def customerhome(request):
     email = request.session.get('email')
     customer = Customer.objects.filter(email=email).first()
