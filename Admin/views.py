@@ -62,14 +62,15 @@ def delete_user(request, username, role):
     if role == 'admin':
         request_database = AdminRequest
         database = AdminRegistration
+        redirect_url = 'Admin:adminrequest'
     else:
         request_database = UserRequest
         database = UserRegistration
-
+        redirect_url = 'Admin:registration'
     user = request_database.objects.filter(username=username).first()
     if user:
         database.objects.create(username=user.username, Name=user.Name, email=user.email, phone_number=user.phone_number, password=user.password)
         user.delete()
-    return redirect('Admin:registration')
+    return redirect(redirect_url)
 
 
