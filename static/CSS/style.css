@@ -22,7 +22,11 @@
 }
 
 @media (max-width: 768px){
-    .col-sm-0_5,
+    .col-sm-0_5{
+        width: 0%;
+        display: none;
+    }
+    
     .col-sm-11_5{
         width: 100%;
     }
