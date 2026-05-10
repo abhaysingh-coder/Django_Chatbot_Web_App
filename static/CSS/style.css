@@ -1,7 +1,16 @@
 .scroll-1{
-    max-height: calc(100vh - 90px);
+    height: calc(100vh - 87.3px);
     overflow-y: auto;
     scrollbar-width: none;
+}
+
+#remove{
+    height: calc(100vh - 60px);
+    padding-bottom: 0;
+}
+
+footer{
+    height: 30px;
 }
 
 .bg-1{
