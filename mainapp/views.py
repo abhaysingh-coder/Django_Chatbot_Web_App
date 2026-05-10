@@ -73,7 +73,7 @@ def signuphome(request):
         elif role == 'customer':
             database = Customer
         elif role == 'admin':
-            database = AdminRegistration
+            database = AdminRequest
 
         if database.objects.filter(username=username).exists():
             return render(request, 'signup.html', {'message': 'Username already exists'})
