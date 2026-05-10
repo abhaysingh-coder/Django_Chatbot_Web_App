@@ -24,5 +24,7 @@ function hid(){
 
 window.onload = function () {
     const chatBox = document.getElementById("chatBox");
-    chatBox.scrollTo({top: chatBox.scrollHeight});
+    if (chatBox) {
+        chatBox.scrollTo({ top: chatBox.scrollHeight });
+    }
 };
