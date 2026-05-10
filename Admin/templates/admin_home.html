@@ -9,7 +9,7 @@
             </p>
         </div>
         <div class="row mt-4">
-            <div class="col-md-6">
+            <div class="col-md-6 mb-1">
                 <a href="{% url 'Admin:adminrequest' %}" class="text-decoration-none">
                     <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
                         <i class="fa-solid fa-user-clock fs-1 mb-3"></i>
@@ -17,7 +17,17 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mb-1">
+                 <a href="{% url 'Admin:admin_management' %}" class="text-decoration-none">
+                    <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-users-gear fs-1 mb-3"></i>
+                        <h4>Admin Management</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6 mb-1">
                 <a href="{% url 'Admin:registration' %}" class="text-decoration-none">
                     <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
                         <i class="fa-solid fa-user-clock fs-1 mb-3"></i>
@@ -25,17 +35,7 @@
                     </div>
                 </a>
             </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col-md-6">
-                <a href="{% url 'Admin:admin_management' %}" class="text-decoration-none">
-                    <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
-                        <i class="fa-solid fa-users-gear fs-1 mb-3"></i>
-                        <h4>Admin Management</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mb-1">
                 <a href="{% url 'Admin:user_management' %}" class="text-decoration-none">
                     <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
                         <i class="fa-solid fa-users fs-1 mb-3"></i>
@@ -43,9 +43,9 @@
                     </div>
                 </a>
             </div>
-        </div>
+        </div> 
         <div class="row mt-4">
-            <div class="col-md-6">
+            <div class="col-md-6 mb-1">
                 <a href="{% url 'Admin:customer_management' %}" class="text-decoration-none">
                     <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
                         <i class="fa-solid fa-user-astronaut fs-1 mb-3"></i>
@@ -53,7 +53,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mb-1">
                 <a href="{% url 'Admin:message' %}" class="text-decoration-none">
                     <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
                         <i class="fa-regular fa-comments fs-1 mb-3"></i>
@@ -63,7 +63,7 @@
             </div>
         </div>
         <div class="row mt-4">
-            <div class="col-md-6">
+            <div class="col-md-6 mb-1">
                 <a href="{% url 'Admin:request_by_chatbot' %}" class="text-decoration-none">
                     <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
                         <i class="fa-solid fa-code-pull-request fs-1 mb-3"></i>
@@ -71,7 +71,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mb-1">
                 <a href="{% url 'Admin:chatbot' %}" class="text-decoration-none">
                     <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
                         <i class="fa-solid fa-robot fs-1 mb-3"></i>
@@ -80,8 +80,8 @@
                 </a>
             </div>
         </div>
-        <div class="row mt-4"> 
-            <div class="col-md-6 mx-auto">
+        <div class="row mt-4">
+            <div class="col-md-6 mx-auto mb-1">
                 <a href="{% url 'Admin:admin_profile' %}" class="text-decoration-none">
                     <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
                         <i class="fa-solid fa-address-card fs-1 mb-3"></i>
@@ -90,6 +90,5 @@
                 </a>
             </div>
         </div>
-        
     </div>
 {% endblock %}
