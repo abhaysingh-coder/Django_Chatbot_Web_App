@@ -23,21 +23,21 @@
 
 @media (max-width: 768px){
     .col-sm-0_5{
-        width: 0%;
+        width: 4%;
         display: none;
     }
-    
+
     .col-sm-11_5{
-        width: 100%;
+        width: 96%;
     }
 
     #add{
-        width: 100%;
+        width: 4%;
         min-height: auto;
     }
 
     #remove{
-        width: 100%;
+        width: 96%;
     }
 
     .navbar h3{
