@@ -44,6 +44,10 @@
     --panel-radius:24px;
 }
 
+html {
+  scrollbar-width: none;
+}
+
 *{
     box-sizing:border-box;
     margin:0;

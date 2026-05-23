@@ -11,6 +11,10 @@
     --shadow:0 24px 70px rgba(7,24,50,.22);
 }
 
+html {
+  scrollbar-width: none;
+}
+
 [data-theme="dark"]{
     --text:#f8fafc;
     --muted:#cbd5e1;
