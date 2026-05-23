@@ -1,94 +1,38 @@
 {% extends "admin_base.html" %}
 {% load static %}
 {% block admin %}
-    <div class="container mt-4">
-        <div class="card border-1 p-4">
-            <h2 class="mb-3">Hello {{ user.username }}</h2>
-            <p class="fs-5 text-muted">
-                Welcome to your Admin dashboard.
-            </p>
-        </div>
-        <div class="row mt-4">
-            <div class="col-md-6 mb-1">
-                <a href="{% url 'Admin:adminrequest' %}" class="text-decoration-none">
-                    <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
-                        <i class="fa-solid fa-user-clock fs-1 mb-3"></i>
-                        <h4>Admin Registration</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 mb-1">
-                 <a href="{% url 'Admin:admin_management' %}" class="text-decoration-none">
-                    <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
-                        <i class="fa-solid fa-users-gear fs-1 mb-3"></i>
-                        <h4>Admin Management</h4>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col-md-6 mb-1">
-                <a href="{% url 'Admin:registration' %}" class="text-decoration-none">
-                    <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
-                        <i class="fa-solid fa-user-clock fs-1 mb-3"></i>
-                        <h4>User Registration</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 mb-1">
-                <a href="{% url 'Admin:user_management' %}" class="text-decoration-none">
-                    <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
-                        <i class="fa-solid fa-users fs-1 mb-3"></i>
-                        <h4>User Management</h4>
-                    </div>
-                </a>
-            </div>
-        </div> 
-        <div class="row mt-4">
-            <div class="col-md-6 mb-1">
-                <a href="{% url 'Admin:customer_management' %}" class="text-decoration-none">
-                    <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
-                        <i class="fa-solid fa-user-astronaut fs-1 mb-3"></i>
-                        <h4>Customer Management</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 mb-1">
-                <a href="{% url 'Admin:message' %}" class="text-decoration-none">
-                    <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
-                        <i class="fa-regular fa-comments fs-1 mb-3"></i>
-                        <h4>Messages</h4>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col-md-6 mb-1">
-                <a href="{% url 'Admin:request_by_chatbot' %}" class="text-decoration-none">
-                    <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
-                        <i class="fa-solid fa-code-pull-request fs-1 mb-3"></i>
-                        <h4>Request by Chatbot</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 mb-1">
-                <a href="{% url 'Admin:chatbot' %}" class="text-decoration-none">
-                    <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
-                        <i class="fa-solid fa-robot fs-1 mb-3"></i>
-                        <h4>Chatbot</h4>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col-md-6 mx-auto mb-1">
-                <a href="{% url 'Admin:admin_profile' %}" class="text-decoration-none">
-                    <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
-                        <i class="fa-solid fa-address-card fs-1 mb-3"></i>
-                        <h4>Profile</h4>
-                    </div>
-                </a>
-            </div>
-        </div>
+<div class="dashboard-hero glass-panel">
+    <div>
+        <span class="eyebrow">Admin Overview</span>
+        <h2>Hello {{ user.username }}</h2>
+        <p>Control registrations, users, customers, messages, chatbot requests and profile from one professional dashboard.</p>
     </div>
+    <div class="hero-badge">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>Secure Panel</span>
+    </div>
+</div>
+
+<div class="stats-grid">
+    <div class="stat-card glass-panel"><i class="fa-solid fa-user-tie"></i><div><span>Total Admins</span><h3 data-count="12">0</h3></div></div>
+    <div class="stat-card glass-panel"><i class="fa-solid fa-users"></i><div><span>Total Users</span><h3 data-count="248">0</h3></div></div>
+    <div class="stat-card glass-panel"><i class="fa-solid fa-user-astronaut"></i><div><span>Customers</span><h3 data-count="86">0</h3></div></div>
+    <div class="stat-card glass-panel"><i class="fa-regular fa-comments"></i><div><span>Messages</span><h3 data-count="134">0</h3></div></div>
+</div>
+
+<div class="section-head">
+    <div><h4>Quick Actions</h4><p>Use these modules to manage your chatbot platform.</p></div>
+</div>
+
+<div class="dashboard-grid filter-area">
+    <a href="{% url 'Admin:adminrequest' %}" class="dash-card glass-panel"><i class="fa-solid fa-user-clock"></i><h4>Admin Registration</h4><p>Approve or reject admin registration requests.</p><span>Open <i class="fa-solid fa-arrow-right"></i></span></a>
+    <a href="{% url 'Admin:admin_management' %}" class="dash-card glass-panel"><i class="fa-solid fa-users-gear"></i><h4>Admin Management</h4><p>Manage active admin accounts and permissions.</p><span>Open <i class="fa-solid fa-arrow-right"></i></span></a>
+    <a href="{% url 'Admin:registration' %}" class="dash-card glass-panel"><i class="fa-solid fa-user-plus"></i><h4>User Registration</h4><p>Review new user registrations.</p><span>Open <i class="fa-solid fa-arrow-right"></i></span></a>
+    <a href="{% url 'Admin:user_management' %}" class="dash-card glass-panel"><i class="fa-solid fa-users"></i><h4>User Management</h4><p>Edit, remove and manage user accounts.</p><span>Open <i class="fa-solid fa-arrow-right"></i></span></a>
+    <a href="{% url 'Admin:customer_management' %}" class="dash-card glass-panel"><i class="fa-solid fa-user-astronaut"></i><h4>Customer Management</h4><p>View and manage customer profiles.</p><span>Open <i class="fa-solid fa-arrow-right"></i></span></a>
+    <a href="{% url 'Admin:message' %}" class="dash-card glass-panel"><i class="fa-regular fa-comments"></i><h4>Messages</h4><p>Track customer conversations and support messages.</p><span>Open <i class="fa-solid fa-arrow-right"></i></span></a>
+    <a href="{% url 'Admin:request_by_chatbot' %}" class="dash-card glass-panel"><i class="fa-solid fa-code-pull-request"></i><h4>Request by Chatbot</h4><p>Monitor chatbot generated requests.</p><span>Open <i class="fa-solid fa-arrow-right"></i></span></a>
+    <a href="{% url 'Admin:chatbot' %}" class="dash-card glass-panel"><i class="fa-solid fa-robot"></i><h4>Chatbot</h4><p>Open and test chatbot interactions.</p><span>Open <i class="fa-solid fa-arrow-right"></i></span></a>
+    <a href="{% url 'Admin:admin_profile' %}" class="dash-card glass-panel"><i class="fa-solid fa-address-card"></i><h4>Profile</h4><p>View and update admin profile details.</p><span>Open <i class="fa-solid fa-arrow-right"></i></span></a>
+</div>
 {% endblock %}

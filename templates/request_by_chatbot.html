@@ -1,32 +1,7 @@
-<div class="container mt-4">
-        <div class="card border-1 p-4">
-            <h2 class="mb-3">Hello {{ user.Name }}</h2>
-            <p class="fs-5 text-muted">
-                Welcome to your Request by Chatbot panel.
-            </p>
-        </div>
-        <div class="card mt-4 border-1 p-4" style="height: 400px; overflow-y: auto; scrollbar-width: none;">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">S.No.</th>
-                        <th scope="col">Request by User</th>
-                        <th scope="col">Flags</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Request by Chatbot</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for mes in messages %}
-                    <tr>
-                        <td>{{ forloop.counter }}</td>
-                        <td>{{ mes.Utterance }}</td>
-                        <td>{{ mes.Flags }}</td>
-                        <td>{{ mes.Category }}</td>
-                        <td>{{ mes.Intent }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </div>
+<div class="glass-card panel-hero fade-up mb-4">
+    <div class="panel-kicker">Chatbot Requests</div><h2 class="panel-title">Hello {{ user.Name }}</h2><p class="panel-muted mb-0">Analyze chatbot flags, categories and detected intents.</p>
+</div>
+<div class="glass-card panel-table-card fade-up">
+    <div class="table-toolbar"><h4 class="panel-title">Request Analysis</h4></div>
+    <div class="table-responsive panel-scroll"><table class="table panel-table" id="requestTable"><thead><tr><th>S.No.</th><th>Request by User</th><th>Flags</th><th>Category</th><th>Request by Chatbot</th></tr></thead><tbody>{% for mes in messages %}<tr><td>{{ forloop.counter }}</td><td>{{ mes.Utterance }}</td><td>{{ mes.Flags }}</td><td>{{ mes.Category }}</td><td>{{ mes.Intent }}</td></tr>{% empty %}<tr><td colspan="5" class="text-center panel-muted">No chatbot requests found.</td></tr>{% endfor %}</tbody></table></div>
+</div>

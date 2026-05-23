@@ -1,28 +1,18 @@
-    <div class="card mt-4 border-1 p-4" style="height: 400px; overflow-y: auto; scrollbar-width: none;">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">S.No.</th>
-                    <th scope="col">UserName</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Phone No.</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
+<div class="glass-card panel-table-card fade-up">
+    <div class="table-toolbar">
+        <div><h4 class="panel-title">Registration Requests</h4><p class="panel-muted mb-0">Approve pending {{ role|default:'user' }} registrations.</p></div>
+        
+    </div>
+    <div class="table-responsive panel-scroll">
+        <table class="table panel-table" id="registrationTable">
+            <thead><tr><th>S.No.</th><th>Username</th><th>Name</th><th>Email</th><th>Phone No.</th><th>Actions</th></tr></thead>
             <tbody>
-                {% for mes in user %}
-                <tr>
-                    <td>{{ forloop.counter }}</td>
-                    <td>{{ mes.username }}</td>
-                    <td>{{ mes.Name }}</td>
-                    <td>{{ mes.email }}</td>
-                    <td>{{ mes.phone_number }}</td>
-                    <td>
-                        <a href="{% url 'Admin:delete_user' mes.username role %}" class="btn btn-success btn-sm">Approve</a>
-                    </td>
-                </tr>
-                {% endfor %}
+            {% for mes in user %}
+                <tr><td>{{ forloop.counter }}</td><td>{{ mes.username }}</td><td>{{ mes.Name }}</td><td>{{ mes.email }}</td><td>{{ mes.phone_number }}</td><td><a href="{% url 'Admin:delete_user' mes.username role %}" class="btn btn-gold btn-sm">Approve</a></td></tr>
+            {% empty %}
+                <tr><td colspan="6" class="text-center panel-muted">No pending requests.</td></tr>
+            {% endfor %}
             </tbody>
         </table>
     </div>
+</div>

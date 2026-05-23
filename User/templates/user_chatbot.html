@@ -1,5 +1,16 @@
 {% extends "user_base.html" %}
 {% load static %}
 {% block user %}
+<div class="page-banner glass-panel">
+    <div>
+        <span class="eyebrow">AI Assistant</span>
+        <h2>Chatbot</h2>
+        <p>Test chatbot flow and customer support responses.</p>
+    </div>
+    <i class="fa-solid fa-robot"></i>
+</div>
+
+<div class="chatbot-shell glass-panel">
     {% include 'chatbot.html' %}
+</div>
 {% endblock %}

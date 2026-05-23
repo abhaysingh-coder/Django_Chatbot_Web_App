@@ -1,5 +1,16 @@
 {% extends 'customer_base.html' %}
 {% load static %}
 {% block customer %}
+<div class="page-banner glass-panel">
+    <div>
+        <span class="panel-kicker">Account</span>
+        <h2>Customer Profile</h2>
+        <p>View and manage your customer account information.</p>
+    </div>
+    <i class="fa-solid fa-address-card"></i>
+</div>
+
+<div class="table-card glass-panel profile-card-wrap">
     {% include 'profile.html' %}
+</div>
 {% endblock %}

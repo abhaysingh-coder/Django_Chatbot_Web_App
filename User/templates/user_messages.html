@@ -1,5 +1,16 @@
 {% extends 'user_base.html' %}
 {% load static %}
 {% block user %}
+<div class="page-banner glass-panel">
+    <div>
+        <span class="eyebrow">Inbox</span>
+        <h2>Messages</h2>
+        <p>Search and manage support messages professionally.</p>
+    </div>
+    <i class="fa-regular fa-comments"></i>
+</div>
+
+<div class="table-card glass-panel">
     {% include 'message.html' %}
+</div>
 {% endblock %}

@@ -1,5 +1,16 @@
 {% extends 'user_base.html' %}
 {% load static %}
 {% block user %}
+<div class="page-banner glass-panel">
+    <div>
+        <span class="eyebrow">Automation</span>
+        <h2>Request by Chatbot</h2>
+        <p>Monitor all chatbot-generated service requests.</p>
+    </div>
+    <i class="fa-solid fa-code-pull-request"></i>
+</div>
+
+<div class="table-card glass-panel">
     {% include 'request_by_chatbot.html' %}
+</div>
 {% endblock %}

@@ -1,95 +1,65 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
-    <head>
-    <title>Chatbot</title>
-        
-    <!-- Favicon -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AI Chatbot Auth{% endblock %}</title>
+
     <link rel="icon" href="{% static 'favicon.ico' %}">
     <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
 
-    <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- SEO Meta -->
-    <meta name="description" content="AI-powered Django Chatbot Web Application for customer support, user interaction, and automated response management with admin dashboard.">
-    <meta name="keywords" content="Django Chatbot, AI Chatbot, Python Django Project, Customer Support System, Chatbot Web App, Django AI Project, Bootstrap Chatbot">
+    <meta name="description" content="AI-powered Django Chatbot Web Application for customer support and automated response management.">
+    <meta name="keywords" content="Django Chatbot, AI Chatbot, Python Django Project, Bootstrap Chatbot">
     <meta name="author" content="Abhay Singh">
-
-    <!-- Robots -->
-    <meta name="robots" content="index, follow">
-
-    <!-- Theme Color -->
-    <meta name="theme-color" content="#0d6efd">
-
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="Django Chatbot Web App">
-    <meta property="og:description" content="AI-powered chatbot system built using Django, Bootstrap, and Python for customer support automation.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://django-chatbot-web-app.onrender.com/">
-    <meta property="og:image" content="https://django-chatbot-web-app.onrender.com/static/bot_avatar.png">
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Django Chatbot Web App">
-    <meta name="twitter:description" content="AI-powered chatbot system built using Django and Python.">
-    <meta name="twitter:image" content="https://django-chatbot-web-app.onrender.com/static/bot_avatar.png">
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="theme-color" content="#071832">
 </head>
-<body>
-    <div class="container-fluid mx-auto">
-        <div class="row mt-2">
-            <div class="col-12 col-md-8 col-lg-5 card mx-auto mt-4 p-4 p-md-5" style="background-color: rgba(0, 213, 255, 0.2);">
-                {% block content %}
-                {% endblock %}
-            </div>
+<body class="auth-body">
+    <main class="auth-wrapper">
+        <div class="theme-toggle" title="Change theme">
+            <button type="button" id="themeToggle" aria-label="Toggle theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
         </div>
-        <footer class="footer position-absolute top-95 end-0">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12 text-end">
-                        <p class="mb-0 text-muted">
-                            <strong>&copy; Designed and Developed by Abhay Singh</strong>
-                        </p>
+        <section class="auth-hero d-none d-lg-flex">
+            <div class="hero-content">
+                <span class="hero-badge"><i class="fa-solid fa-sparkles"></i> AI Powered Support</span>
+                <h1>Smart chatbot dashboard for faster conversations.</h1>
+                <p>Secure login, role based access, clean interface and professional user experience for your Django chatbot project.</p>
+
+                <div class="hero-stats">
+                    <div>
+                        <strong>24/7</strong>
+                        <span>Support</span>
+                    </div>
+                    <div>
+                        <strong>3</strong>
+                        <span>User Roles</span>
+                    </div>
+                    <div>
+                        <strong>AI</strong>
+                        <span>Ready</span>
                     </div>
                 </div>
             </div>
-        </footer>
-    </div>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <!-- JS-->
-    <script>
-        function togglePassword() {
-            const pass = document.getElementById("password");
-            const icon = document.getElementById("eyeIcon");
-            if (pass.type === "password") {
-                pass.type = "text";
-                icon.classList.replace("fa-eye", "fa-eye-slash");
-            } else {
-                pass.type = "password";
-                icon.classList.replace("fa-eye-slash", "fa-eye");
-            }
-        }
-        const pass = document.getElementById("password");
-        const cpass = document.getElementById("cpassword");
+        </section>
 
-        function validatePasswords() {
-            if (pass.value !== cpass.value) {
-                cpass.setCustomValidity("Passwords do not match");
-            } else {
-                cpass.setCustomValidity("");
-            }
-        }
+        <section class="auth-panel">
+            <div class="auth-card">
+                {% block content %}{% endblock %}
+            </div>
 
-        pass.addEventListener("input", validatePasswords);
-        cpass.addEventListener("input", validatePasswords);
-    </script>
+            <footer class="auth-footer">
+                <strong>&copy; Designed and Developed by Abhay Singh</strong>
+            </footer>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'JS/Script.js' %}"></script>
 </body>
 </html>

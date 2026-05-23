@@ -1,33 +1,7 @@
-
-    <div class="container mt-4">
-        <div class="card border-1 p-4">
-            <h2 class="mb-3">Hello {{ user.Name }}</h2>
-            <p class="fs-5 text-muted">
-                Welcome to your Message panel.
-            </p>
-        </div>
-        <div class="card mt-4 border-1 p-4" style="height: 400px; overflow-y: auto; scrollbar-width: none;">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">S.No.</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">User Message</th>
-                        <th scope="col">Bot Response</th>
-                        <th scope="col">Timestamp</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for mes in messages %}
-                    <tr>
-                        <td>{{ forloop.counter }}</td>
-                        <td>{{ mes.Email }}</td>
-                        <td>{{ mes.user_message }}</td>
-                        <td>{{ mes.bot_response }}</td>
-                        <td>{{ mes.timestamp }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </div>
+<div class="glass-card panel-hero fade-up mb-4">
+    <div class="panel-kicker">Messages</div><h2 class="panel-title">Hello {{ user.Name }}</h2><p class="panel-muted mb-0">Review user messages and chatbot responses.</p>
+</div>
+<div class="glass-card panel-table-card fade-up">
+    <div class="table-toolbar"><h4 class="panel-title">Conversation History</h4></div>
+    <div class="table-responsive panel-scroll"><table class="table panel-table" id="messageTable"><thead><tr><th>S.No.</th><th>Email</th><th>User Message</th><th>Bot Response</th><th>Timestamp</th></tr></thead><tbody>{% for mes in messages %}<tr><td>{{ forloop.counter }}</td><td>{{ mes.Email }}</td><td>{{ mes.user_message }}</td><td>{{ mes.bot_response }}</td><td>{{ mes.timestamp }}</td></tr>{% empty %}<tr><td colspan="5" class="text-center panel-muted">No messages found.</td></tr>{% endfor %}</tbody></table></div>
+</div>

@@ -1,30 +1,62 @@
 {% extends 'customer_base.html' %}
 {% load static %}
 {% block customer %}
-    <div class="container mt-4">
-        <div class="card border-1 p-4">
-            <h2 class="mb-3">Hello {{ customer.Name }}</h2>
-            <p class="fs-5 text-muted">
-                Welcome to your customer dashboard.
-            </p>
-        </div>
-        <div class="row mt-4">
-            <div class="col-md-6 mb-1">
-                <a href="{% url 'Customer:customerprofile' %}" class="text-decoration-none">
-                    <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
-                        <i class="fa-solid fa-address-card fs-1 mb-3"></i>
-                        <h4>Profile</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 mb-1">
-                <a href="{% url 'Customer:customerbot' %}" class="text-decoration-none">
-                    <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
-                        <i class="fa-solid fa-robot fs-1 mb-3"></i>
-                        <h4>Chatbot</h4>
-                    </div>
-                </a>
-            </div>
+<div class="panel-hero glass-panel">
+    <div>
+        <span class="panel-kicker">Customer Overview</span>
+        <h2>Hello {{ customer.Name }}</h2>
+        <p>Access your profile and chatbot support from one professional dashboard.</p>
+    </div>
+    <div class="hero-badge">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>Secure Panel</span>
+    </div>
+</div>
+
+<div class="stats-grid">
+    <div class="stat-card glass-panel">
+        <i class="fa-solid fa-user-check"></i>
+        <div>
+            <span>Profile Status</span>
+            <h3 data-count="100">0</h3>
         </div>
     </div>
+    <div class="stat-card glass-panel">
+        <i class="fa-solid fa-robot"></i>
+        <div>
+            <span>Chatbot Access</span>
+            <h3 data-count="1">0</h3>
+        </div>
+    </div>
+    <div class="stat-card glass-panel">
+        <i class="fa-solid fa-headset"></i>
+        <div>
+            <span>Support Mode</span>
+            <h3 data-count="24">0</h3>
+        </div>
+    </div>
+</div>
+
+<div class="section-head">
+    <div>
+        <h4>Quick Actions</h4>
+        <p>Use these modules to manage your support experience.</p>
+    </div>
+</div>
+
+<div class="dashboard-grid">
+    <a href="{% url 'Customer:customerprofile' %}" class="dash-card glass-panel">
+        <i class="fa-solid fa-address-card"></i>
+        <h4>Profile</h4>
+        <p>View your customer profile details.</p>
+        <span>Open <i class="fa-solid fa-arrow-right"></i></span>
+    </a>
+
+    <a href="{% url 'Customer:customerbot' %}" class="dash-card glass-panel">
+        <i class="fa-solid fa-robot"></i>
+        <h4>Chatbot</h4>
+        <p>Start a support conversation with chatbot.</p>
+        <span>Open <i class="fa-solid fa-arrow-right"></i></span>
+    </a>
+</div>
 {% endblock %}

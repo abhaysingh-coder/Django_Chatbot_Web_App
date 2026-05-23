@@ -1,59 +1,93 @@
 {% extends 'user_base.html' %}
 {% load static %}
 {% block user %}
-    <div class="container mt-4">
-        <div class="card border-1 p-4">
-            <h2 class="mb-3">Hello {{ user.Name }}</h2>
-            <p class="fs-5 text-muted">
-                Welcome to your User dashboard.
-            </p>
-        </div>
-        <div class="row mt-4">
-            <div class="col-md-6 mb-1">
-                <a href="{% url 'User:customer_management' %}" class="text-decoration-none">
-                    <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
-                        <i class="fa-solid fa-user-astronaut fs-1 mb-3"></i>
-                        <h4>Customer Management</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 mb-1">
-                <a href="{% url 'User:messages' %}" class="text-decoration-none">
-                    <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
-                        <i class="fa-regular fa-comments fs-1 mb-3"></i>
-                        <h4>Messages</h4>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col-md-6 mb-1">
-                <a href="{% url 'User:request_by_chatbot' %}" class="text-decoration-none">
-                    <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
-                        <i class="fa-solid fa-code-pull-request fs-1 mb-3"></i>
-                        <h4>Request by Chatbot</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 mb-1">
-                <a href="{% url 'User:userbot' %}" class="text-decoration-none">
-                    <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
-                        <i class="fa-solid fa-robot fs-1 mb-3"></i>
-                        <h4>Chatbot</h4>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col-md-6 mx-auto mb-1">
-                <a href="{% url 'User:user_profile' %}" class="text-decoration-none">
-                    <div class="card shadow-sm border-0 text-center p-4 bg-1 d-flex align-items-center gap-2">
-                        <i class="fa-solid fa-address-card fs-1 mb-3"></i>
-                        <h4>Profile</h4>
-                    </div>
-                </a>
-            </div>
-        </div>
-        
+<div class="dashboard-hero glass-panel">
+    <div>
+        <span class="eyebrow">User Overview</span>
+        <h2>Hello {{ user.Name }}</h2>
+        <p>Access customer management, messages, chatbot requests, profile and live chatbot support from one professional dashboard.</p>
     </div>
+    <div class="hero-badge">
+        <i class="fa-solid fa-user-shield"></i>
+        <span>Secure User Panel</span>
+    </div>
+</div>
+
+<div class="stats-grid">
+    <div class="stat-card glass-panel">
+        <i class="fa-solid fa-user-astronaut"></i>
+        <div>
+            <span>Customers</span>
+            <h3 data-count="86">0</h3>
+        </div>
+    </div>
+    <div class="stat-card glass-panel">
+        <i class="fa-regular fa-comments"></i>
+        <div>
+            <span>Messages</span>
+            <h3 data-count="134">0</h3>
+        </div>
+    </div>
+    <div class="stat-card glass-panel">
+        <i class="fa-solid fa-code-pull-request"></i>
+        <div>
+            <span>Requests</span>
+            <h3 data-count="42">0</h3>
+        </div>
+    </div>
+    <div class="stat-card glass-panel">
+        <i class="fa-solid fa-robot"></i>
+        <div>
+            <span>Bot Sessions</span>
+            <h3 data-count="58">0</h3>
+        </div>
+    </div>
+</div>
+
+<div class="section-head">
+    <div>
+        <h4>Quick Actions</h4>
+        <p>Use these modules to manage your chatbot platform.</p>
+    </div>
+    <button class="btn btn-outline-gold" id="refreshCards" type="button">
+        <i class="fa-solid fa-rotate me-1"></i> Refresh
+    </button>
+</div>
+
+<div class="dashboard-grid">
+    <a href="{% url 'User:customer_management' %}" class="dash-card glass-panel">
+        <i class="fa-solid fa-user-astronaut"></i>
+        <h4>Customer Management</h4>
+        <p>View and manage customer records.</p>
+        <span>Open <i class="fa-solid fa-arrow-right"></i></span>
+    </a>
+
+    <a href="{% url 'User:messages' %}" class="dash-card glass-panel">
+        <i class="fa-regular fa-comments"></i>
+        <h4>Messages</h4>
+        <p>Review conversations and support messages.</p>
+        <span>Open <i class="fa-solid fa-arrow-right"></i></span>
+    </a>
+
+    <a href="{% url 'User:request_by_chatbot' %}" class="dash-card glass-panel">
+        <i class="fa-solid fa-code-pull-request"></i>
+        <h4>Request by Chatbot</h4>
+        <p>Monitor chatbot generated requests.</p>
+        <span>Open <i class="fa-solid fa-arrow-right"></i></span>
+    </a>
+
+    <a href="{% url 'User:userbot' %}" class="dash-card glass-panel">
+        <i class="fa-solid fa-robot"></i>
+        <h4>Chatbot</h4>
+        <p>Open and test chatbot interactions.</p>
+        <span>Open <i class="fa-solid fa-arrow-right"></i></span>
+    </a>
+
+    <a href="{% url 'User:user_profile' %}" class="dash-card glass-panel">
+        <i class="fa-solid fa-address-card"></i>
+        <h4>Profile</h4>
+        <p>View and update profile details.</p>
+        <span>Open <i class="fa-solid fa-arrow-right"></i></span>
+    </a>
+</div>
 {% endblock %}

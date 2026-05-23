@@ -1,13 +1,6 @@
 {% extends "admin_base.html" %}
 {% load static %}
 {% block admin %}
-    <div class="container mt-4">
-        <div class="card border-1 p-4">
-            <h2 class="mb-3">Hello {{ user.username }}</h2>
-            <p class="fs-5 text-muted">
-                Welcome to your Admin Registration dashboard.
-            </p>
-        </div>
-        {% include 'registration.html' %}
-    </div>
+<div class="page-banner glass-panel"><div><span class="eyebrow">Registration</span><h2>Hello {{ user.username }}</h2><p>Welcome to your Admin Registration dashboard.</p></div><i class="fa-solid fa-user-tie"></i></div>
+<div class="table-card glass-panel">{% include 'registration.html' %}</div>
 {% endblock %}

@@ -1,5 +1,16 @@
 {% extends "customer_base.html" %}
 {% load static %}
 {% block customer %}
+<div class="page-banner glass-panel">
+    <div>
+        <span class="panel-kicker">AI Assistant</span>
+        <h2>Chatbot</h2>
+        <p>Chat with the support assistant for quick help.</p>
+    </div>
+    <i class="fa-solid fa-robot"></i>
+</div>
+
+<div class="chatbot-shell glass-panel">
     {% include 'chatbot.html' %}
+</div>
 {% endblock %}

@@ -1,47 +1,17 @@
-<div class="container-fluid p-0 py-3">
-        <!-- Profile Header -->
-        <div class="text-center text-white p-4" style="background: linear-gradient(135deg, #5b5df5, #25b7f5);">
-            {% load static %}
-            <img src="{% static 'icon.png' %}" class="rounded-circle border border-3 border-white" width="120" height="120">
-            <h2 class="mt-3 mb-1">{{ user.Name }}</h2>
-        </div>
-        <!-- Profile Details -->
-        <div class="container mt-4">
-            <div class="card shadow-sm mb-3">
-                <div class="card-body d-flex">
-                    <i class="fa-solid fa-user fs-3 me-4"></i>
-                        <div class="d-flex align-items-center gap-2">
-                            <h4 class="mb-0">Username:</h4>
-                            <p class="fs-5 mb-0 ps-3">{{ user.username }}</p>
-                        </div>
-                </div>
-            </div>
-            <div class="card shadow-sm mb-3">
-                <div class="card-body d-flex">
-                    <i class="fa-solid fa-user fs-3 me-4"></i>
-                    <div class="d-flex align-items-center gap-2">
-                        <h4 class="mb-0">Name:</h4>
-                        <p class="fs-5 mb-0 ps-3">{{ user.Name }}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card shadow-sm mb-3">
-                <div class="card-body d-flex">
-                    <i class="fa-regular fa-envelope fs-3 me-4"></i>
-                    <div class="d-flex align-items-center gap-2">
-                        <h4 class="mb-0">Email:</h4>
-                        <p class="fs-5 mb-0 ps-3">{{ user.email }}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card shadow-sm mb-3">
-                <div class="card-body d-flex">
-                    <i class="fa-solid fa-phone fs-3 me-4"></i>
-                    <div class="d-flex align-items-center gap-2">
-                        <h4 class="mb-0">Phone:</h4>
-                        <p class="fs-5 mb-0 ps-3">{{ user.phone_number }}</p>
-                    </div>
-                </div>
-            </div>
+{% load static %}
+<div class="profile-cover fade-up mb-4">
+    <div class="d-flex flex-column flex-md-row align-items-center gap-4 position-relative">
+        <img src="{% static 'icon.png' %}" class="rounded-circle profile-avatar" alt="Profile">
+        <div class="text-center text-md-start">
+            <div class="panel-kicker">Profile</div>
+            <h2 class="fw-bold mb-1">{{ user.Name }}</h2>
+            <p class="mb-0 text-white-50">{{ user.email }}</p>
         </div>
     </div>
+</div>
+<div class="row g-3">
+    <div class="col-md-6"><div class="info-card"><i class="fa-solid fa-user mb-3"></i><h6 class="panel-muted">Username</h6><h4>{{ user.username }}</h4></div></div>
+    <div class="col-md-6"><div class="info-card"><i class="fa-solid fa-id-card mb-3"></i><h6 class="panel-muted">Name</h6><h4>{{ user.Name }}</h4></div></div>
+    <div class="col-md-6"><div class="info-card"><i class="fa-regular fa-envelope mb-3"></i><h6 class="panel-muted">Email</h6><h4 class="fs-5">{{ user.email }}</h4></div></div>
+    <div class="col-md-6"><div class="info-card"><i class="fa-solid fa-phone mb-3"></i><h6 class="panel-muted">Phone</h6><h4>{{ user.phone_number }}</h4></div></div>
+</div>

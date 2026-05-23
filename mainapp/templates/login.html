@@ -1,65 +1,67 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %}Login | AI Chatbot{% endblock %}
 {% block content %}
-    <div class="text-center">
-        {% load static %}
-        <img src="{% static 'bot_avatar.png' %}" alt="" class="img-fluid h-50 w-25">
-        <h3 class="fw-bold">Chatbot Login</h3>
-        <p class="text-muted mb-0">Sign in to continue</p>
+<div class="auth-header text-center">
+    <div class="avatar-ring">
+        <img src="{% static 'bot_avatar.png' %}" alt="Chatbot avatar">
     </div>
-    <form method="post" action="">
+    <h3>Welcome Back</h3>
+    <p>Login to continue to your chatbot dashboard</p>
+</div>
+
+<form method="post" action="" class="auth-form needs-validation" novalidate>
     {% csrf_token %}
-        <!-- User Type -->
-        <div class="mb-3">
-            <label class="form-label">Login As</label>
-            <div class="input-group">
-                <span class="input-group-text rounded-start-pill">
-                    <i class="fa-solid fa-users"></i>
-                </span>
-                <select name="role" class="form-select rounded-end-pill" required>
-                    <option value="admin">Admin</option>
-                    <option value="customer">Customer</option>
-                    <option value="user">User</option>
-                </select>
-            </div>
+
+    <div class="mb-3">
+        <label class="form-label">Login As</label>
+        <div class="modern-input">
+            <i class="fa-solid fa-users"></i>
+            <select name="role" class="form-select" required>
+                <option value="admin">Admin</option>
+                <option value="customer">Customer</option>
+                <option value="user">User</option>
+            </select>
         </div>
-        <!-- Email -->
-        <div class="mb-3">
-            <label class="form-label">Email</label>
-            <div class="input-group ">
-                <span class="input-group-text rounded-start-pill">
-                    <i class="fa-solid fa-user"></i>
-                </span>
-                <input type="email" name="email" class="form-control rounded-end-pill" placeholder="Enter email" required>
-            </div>
-            {% if message %}
-            <p class="text-danger small fw-bold">{{message }}</p>
-            {% endif %}
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Email Address</label>
+        <div class="modern-input">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" name="email" class="form-control" placeholder="Enter email address" required>
         </div>
-        <!-- Password -->
-        <div class="mb-3">
-            <label class="form-label">Password</label>
-            <div class="input-group">
-                <span class="input-group-text rounded-start-pill">
-                    <i class="fa-solid fa-lock"></i>
-                </span>
-                <input type="password" id="password" name="password" class="form-control rounded-0" placeholder="Enter password" required>
-                <span class="input-group-text rounded-end-pill" style="cursor:pointer;" onclick="togglePassword()">
-                    <i id="eyeIcon" class="fa-solid fa-eye"></i>
-                </span>
-            </div>
-        </div>
-        <!-- Login Button -->
-        <div class="d-grid col-sm-7 mx-auto mb-3">
-            <button type="submit" class="btn btn-info fw-bold rounded-pill">
-                <i class="fa-solid fa-right-to-bracket me-2"></i> Login
+        {% if message %}
+        <p class="form-error"><i class="fa-solid fa-circle-exclamation me-1"></i>{{ message }}</p>
+        {% endif %}
+    </div>
+
+    <div class="mb-2">
+        <label class="form-label">Password</label>
+        <div class="modern-input">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="password" name="password" class="form-control password-field" placeholder="Enter password" required>
+            <button class="password-toggle" type="button" data-target="password" aria-label="Show password">
+                <i class="fa-solid fa-eye"></i>
             </button>
         </div>
-        <!-- Extra Links -->
-        <div class="text-center">
-            <a href="{% url 'mainapp:forgethome' %}" class="text-decoration-none">Forgot password?</a>
-            <span class="mx-2">|</span>
-            <a href="{% url 'mainapp:signuphome' %}" class="text-decoration-none">Create account</a>
-        </div>
-    </form>
-    {% endblock %}
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-4 small">
+        <label class="remember-box">
+            <input type="checkbox" name="remember">
+            <span>Remember me</span>
+        </label>
+        <a href="{% url 'mainapp:forgethome' %}" class="auth-link">Forgot password?</a>
+    </div>
+
+    <button type="submit" class="btn auth-btn w-100">
+        <span>Login</span>
+        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+    </button>
+
+    <p class="auth-switch text-center mt-4 mb-0">
+        New here? <a href="{% url 'mainapp:signuphome' %}">Create account</a>
+    </p>
+</form>
+{% endblock %}

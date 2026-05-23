@@ -1,77 +1,75 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %}Reset Password | AI Chatbot{% endblock %}
 {% block content %}
-    <div class="text-center">
-        <img src="{% static 'bot_avatar.png' %}" class="img-fluid h-50 w-25" alt="">
-        <h3 class="fw-bold">Reset Password</h3>
-        <p class="text-muted mb-0">Reset your password instantly</p>
+<div class="auth-header text-center">
+    <div class="avatar-ring">
+        <img src="{% static 'bot_avatar.png' %}" alt="Chatbot avatar">
     </div>
-    <form method="post" action="">
-        {% csrf_token %}
-        <!-- Login As -->
-        <div class="mb-3">
-            <label class="form-label">Register As</label>
-            <div class="input-group">
-                <span class="input-group-text rounded-start-pill">
-                    <i class="fa-solid fa-users"></i>
-                </span>
-                <select name="role" class="form-select rounded-end-pill" required>
-                    <option value="" selected disabled>Select role</option>
-                    <option value="admin">Admin</option>
-                    <option value="user">User</option>
-                    <option value="customer">Customer</option>
-                </select>
-            </div>
-        </div>
-        <!-- Email -->
-        <div class="mb-3">
-            <label class="form-label">Email</label>
-            <div class="input-group">
-                <span class="input-group-text rounded-start-pill">
-                    <i class="fa-solid fa-user"></i>
-                </span>
-                <input type="email" name="email" class="form-control rounded-end-pill" placeholder="Enter email" required>
-            </div>
-            {% if message %}
-            <p class="text-danger small fw-bold">{{message }}</p>
-            {% endif %}
-        </div>
-        <!-- New Password -->
-        <div class="mb-3">
-            <label class="form-label">New Password</label>
-            <div class="input-group">
-                <span class="input-group-text rounded-start-pill">
-                    <i class="fa-solid fa-lock"></i>
-                </span>
-                <input type="password" id="password" name="password" class="form-control rounded-0" placeholder="Enter new password"  required>
+    <h3>Reset Password</h3>
+    <p>Enter your details and create a new secure password</p>
+</div>
 
-                <span class="input-group-text rounded-end-pill" onclick="togglePassword()" style="cursor:pointer;">
-                    <i id="eye1" class="fa-solid fa-eye"></i>
-                </span>
-            </div>
+<form method="post" action="" class="auth-form needs-validation" novalidate>
+    {% csrf_token %}
+
+    <div class="mb-3">
+        <label class="form-label">Account Type</label>
+        <div class="modern-input">
+            <i class="fa-solid fa-users"></i>
+            <select name="role" class="form-select" required>
+                <option value="" selected disabled>Select role</option>
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+                <option value="customer">Customer</option>
+            </select>
         </div>
-        <!-- Confirm Password -->
-        <div class="mb-3">
-            <label class="form-label">Confirm Password</label>
-            <div class="input-group">
-                <span class="input-group-text rounded-start-pill">
-                    <i class="fa-solid fa-lock"></i>
-                </span>
-                <input type="password" id="cpassword" class="form-control rounded-0" placeholder="Confirm password" required>
-                <span class="input-group-text rounded-end-pill" onclick="toggleCPassword()" style="cursor:pointer;">
-                    <i id="eye2" class="fa-solid fa-eye"></i>
-                </span>
-            </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <div class="modern-input">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" name="email" class="form-control" placeholder="Enter registered email" required>
         </div>
-    
-        <!-- Reset Button -->
-        <div class="d-grid col-sm-7 mx-auto mb-3">
-            <button type="submit" class="btn btn-info fw-bold rounded-pill">
-                Reset Password
+        {% if message %}
+        <p class="form-error"><i class="fa-solid fa-circle-exclamation me-1"></i>{{ message }}</p>
+        {% endif %}
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">New Password</label>
+        <div class="modern-input">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="password" name="password" class="form-control password-field" placeholder="Enter new password" required>
+            <button class="password-toggle" type="button" data-target="password" aria-label="Show password">
+                <i class="fa-solid fa-eye"></i>
             </button>
         </div>
-        <div class="text-center">
-            <a href="{% url 'mainapp:Loginhome' %}" class="text-decoration-none">Back to Login</a>
+        <div class="password-strength mt-2" data-strength-for="password">
+            <span></span>
         </div>
-    </form>
+    </div>
+
+    <div class="mb-4">
+        <label class="form-label">Confirm Password</label>
+        <div class="modern-input">
+            <i class="fa-solid fa-shield-halved"></i>
+            <input type="password" id="cpassword" name="confirm_password" class="form-control password-field" placeholder="Confirm password" required>
+            <button class="password-toggle" type="button" data-target="cpassword" aria-label="Show password">
+                <i class="fa-solid fa-eye"></i>
+            </button>
+        </div>
+        <p class="password-match small mb-0 mt-2" id="passwordMatch"></p>
+    </div>
+
+    <button type="submit" class="btn auth-btn w-100">
+        <span>Reset Password</span>
+        <i class="fa-solid fa-key"></i>
+    </button>
+
+    <p class="auth-switch text-center mt-4 mb-0">
+        Remember password? <a href="{% url 'mainapp:Loginhome' %}">Back to Login</a>
+    </p>
+</form>
 {% endblock %}
