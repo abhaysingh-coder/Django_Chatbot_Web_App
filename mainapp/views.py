@@ -18,21 +18,23 @@ def Loginhome(request):
         try:
             if role == 'admin':
                 user = AdminRegistration.objects.get(email=email, password=password)
-                request.session['admin_email'] = user.email
+                request.session['Name'] = user.Name
                 request.session['email'] = user.email
                 request.session['role'] = role
                 return redirect('Admin:adminhome')
             elif role == 'customer':
                 user = Customer.objects.get(email=email, password=password)
-                request.session['customer_email'] = user.email
+                request.session['Name'] = user.Name
                 request.session['email'] = user.email
                 request.session['role'] = role
+                request.session['login_time'] = timezone.now().timestamp()
                 return redirect('Customer:customerhome')
             elif role == 'user':
                 user = UserRegistration.objects.get(email=email, password=password)
-                request.session['user_email'] = user.email
+                request.session['Name'] = user.Name
                 request.session['email'] = user.email
                 request.session['role'] = role
+                request.session['login_time'] = timezone.now().timestamp()
                 return redirect('User:userhome')
             else:
                 return render(request, 'login.html', {'message': 'Invalid User Type selected'})

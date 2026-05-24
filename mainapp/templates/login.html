@@ -15,12 +15,12 @@
 
     <div class="mb-3">
         <label class="form-label">Login As</label>
-        <div class="modern-input">
+        <div class="modern-input role-select-wrapper">
             <i class="fa-solid fa-users"></i>
-            <select name="role" class="form-select" required>
-                <option value="admin">Admin</option>
-                <option value="customer">Customer</option>
-                <option value="user">User</option>
+            <select name="role" class="form-select custom-role-select" required>
+                <option value="admin">👑 Admin</option>
+                <option value="customer">🛍 Customer</option>
+                <option value="user">👤 User</option>
             </select>
         </div>
     </div>
@@ -41,9 +41,6 @@
         <div class="modern-input">
             <i class="fa-solid fa-lock"></i>
             <input type="password" id="password" name="password" class="form-control password-field" placeholder="Enter password" required>
-            <button class="password-toggle" type="button" data-target="password" aria-label="Show password">
-                <i class="fa-solid fa-eye"></i>
-            </button>
         </div>
     </div>
 

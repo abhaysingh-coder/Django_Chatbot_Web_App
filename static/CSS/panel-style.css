@@ -1328,8 +1328,8 @@ ul{margin:0;padding:0}
 }
 
 .panel-user-info small{
-    font-size:14px;
-    color:#50617c;
+    font-size:13px;
+    white-space:nowrap;
 }
 
 .panel-dropdown-icon{
@@ -2703,3 +2703,29 @@ body.dark-mode{
 }
 
 /* ====================== END: customer-style.css ====================== */
+
+.panel-topbar{
+    overflow: visible !important;
+}
+
+.panel-topbar-actions{
+    flex-wrap: nowrap !important;
+}
+
+.panel-user-card{
+    max-width: 320px;
+    overflow: hidden;
+}
+
+.panel-user-info{
+    min-width: 0;
+    overflow: hidden;
+}
+
+.panel-user-info small{
+    display:block;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    max-width:180px;
+}

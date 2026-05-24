@@ -1,6 +1,6 @@
 {% extends 'admin_base.html' %}
 {% load static %}
 {% block admin %}
-<div class="page-banner glass-panel"><div><span class="eyebrow">Customers</span><h2>Hello {{ user.Name }}</h2><p>Welcome to your Customer Management panel.</p></div><i class="fa-solid fa-user-astronaut"></i></div>
+<div class="page-banner glass-panel"><div><span class="eyebrow">Customers</span><h2>Customer Management</h2><p>Welcome to your Customer Management panel.</p></div><i class="fa-solid fa-user-astronaut"></i></div>
 <div class="table-card glass-panel">{% include 'management.html' with role='customer' customer=customer %}</div>
 {% endblock %}

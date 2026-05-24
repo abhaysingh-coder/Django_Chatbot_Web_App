@@ -4,13 +4,18 @@ from .models import *
 from wordfreq import zipf_frequency
 from Admin.models import *
 import decorators
+from django.utils import timezone
+
 
 # Create your views here.
 @decorators.login_required_role('customer')
 def customerhome(request):
     email = request.session.get('email')
-    customer = Customer.objects.filter(email=email).first()
-    return render(request,'customer_home.html', {"customer": customer})
+    contex = {
+        'customer' : Customer.objects.filter(email=email).first(),
+        'botsession' : round((timezone.now().timestamp() - request.session.get('login_time')))
+    }
+    return render(request,'customer_home.html', contex)
 
 def customerbot(request):
     messages = chatbot_response(request)

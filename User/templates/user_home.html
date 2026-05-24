@@ -4,7 +4,7 @@
 <div class="dashboard-hero glass-panel">
     <div>
         <span class="eyebrow">User Overview</span>
-        <h2>Hello {{ user.Name }}</h2>
+        <h2>Hello {{ current_user.Name }}</h2>
         <p>Access customer management, messages, chatbot requests, profile and live chatbot support from one professional dashboard.</p>
     </div>
     <div class="hero-badge">
@@ -18,28 +18,28 @@
         <i class="fa-solid fa-user-astronaut"></i>
         <div>
             <span>Customers</span>
-            <h3 data-count="86">0</h3>
+            <h3>{{customer}}</h3>
         </div>
     </div>
     <div class="stat-card glass-panel">
         <i class="fa-regular fa-comments"></i>
         <div>
             <span>Messages</span>
-            <h3 data-count="134">0</h3>
+            <h3>{{message}}</h3>
         </div>
     </div>
     <div class="stat-card glass-panel">
         <i class="fa-solid fa-code-pull-request"></i>
         <div>
             <span>Requests</span>
-            <h3 data-count="42">0</h3>
+            <h3>{{request}}</h3>
         </div>
     </div>
     <div class="stat-card glass-panel">
         <i class="fa-solid fa-robot"></i>
         <div>
             <span>Bot Sessions</span>
-            <h3 data-count="58">0</h3>
+            <h3 id="botSessionTimer">{{ botsession }}</h3>
         </div>
     </div>
 </div>

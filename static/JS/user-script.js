@@ -86,3 +86,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+const timer = document.getElementById("botSessionTimer");
+if (timer) {
+    let seconds = Number(timer.innerText);
+    setInterval(() => {
+        seconds++;
+        let hrs = Math.floor(seconds / 3600);
+        let mins = Math.floor((seconds % 3600) / 60);
+        let secs = seconds % 60;
+        timer.innerText = `${mins}m ${secs}s`;
+    }, 1000);
+}

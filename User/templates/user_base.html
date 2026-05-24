@@ -92,11 +92,15 @@
                         <div class="panel-avatar">
                             <img src="{% static 'icon.png' %}" alt="User">
                         </div>
-                        <div class="panel-user-info">
+                        <div class="panel-user-info d-flex flex-column">
                             <strong>User</strong>
-                            {% if request.session.user_email %}
-                                <small>{{ request.session.user_email }}</small>
-                            {% endif %}
+                            <small class="d-block">
+                                {% if request.session.email %}
+                                    {{ request.session.email }}
+                                {% else %}
+                                    {{ current_user.email }}
+                                {% endif %}
+                            </small>
                         </div>
                         <i class="fa-solid fa-chevron-down panel-dropdown-icon"></i>
                     </div>

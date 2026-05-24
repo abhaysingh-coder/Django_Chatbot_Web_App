@@ -57,8 +57,8 @@
                     </div>
                     <div class="admin-user-info">
                         <strong>Admin</strong>
-                        {% if request.session.admin_email %}
-                        <small>{{ request.session.admin_email }}</small>
+                        {% if request.session.email %}
+                        <small>{{ request.session.email }}</small>
                         {% endif %}
                     </div>
                     <i class="fa-solid fa-chevron-down admin-dropdown-icon"></i>

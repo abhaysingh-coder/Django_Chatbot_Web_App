@@ -20,11 +20,6 @@
 </head>
 <body class="auth-body">
     <main class="auth-wrapper">
-        <div class="theme-toggle" title="Change theme">
-            <button type="button" id="themeToggle" aria-label="Toggle theme">
-                <i class="fa-solid fa-moon"></i>
-            </button>
-        </div>
         <section class="auth-hero d-none d-lg-flex">
             <div class="hero-content">
                 <span class="hero-badge"><i class="fa-solid fa-sparkles"></i> AI Powered Support</span>
@@ -49,13 +44,14 @@
         </section>
 
         <section class="auth-panel">
+            <div class="theme-toggle" title="Change theme">
+                <button type="button" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
             <div class="auth-card">
                 {% block content %}{% endblock %}
             </div>
-
-            <footer class="auth-footer">
-                <strong>&copy; Designed and Developed by Abhay Singh</strong>
-            </footer>
         </section>
     </main>
 

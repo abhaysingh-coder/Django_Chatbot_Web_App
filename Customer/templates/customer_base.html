@@ -73,8 +73,8 @@
                     </div>
                     <div class="panel-user-info">
                         <strong>Customer</strong>
-                        {% if request.session.customer_email %}
-                            <small>{{ request.session.customer_email }}</small>
+                        {% if request.session.email %}
+                            <small>{{ request.session.email }}</small>
                         {% endif %}
                     </div>
                     <i class="fa-solid fa-chevron-down panel-dropdown-icon"></i>

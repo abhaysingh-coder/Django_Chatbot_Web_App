@@ -4,7 +4,7 @@
 <div class="dashboard-hero glass-panel">
     <div>
         <span class="eyebrow">Admin Overview</span>
-        <h2>Hello {{ user.username }}</h2>
+        <h2>Hello {{ user.Name }}</h2>
         <p>Control registrations, users, customers, messages, chatbot requests and profile from one professional dashboard.</p>
     </div>
     <div class="hero-badge">
@@ -14,10 +14,10 @@
 </div>
 
 <div class="stats-grid">
-    <div class="stat-card glass-panel"><i class="fa-solid fa-user-tie"></i><div><span>Total Admins</span><h3 data-count="12">0</h3></div></div>
-    <div class="stat-card glass-panel"><i class="fa-solid fa-users"></i><div><span>Total Users</span><h3 data-count="248">0</h3></div></div>
-    <div class="stat-card glass-panel"><i class="fa-solid fa-user-astronaut"></i><div><span>Customers</span><h3 data-count="86">0</h3></div></div>
-    <div class="stat-card glass-panel"><i class="fa-regular fa-comments"></i><div><span>Messages</span><h3 data-count="134">0</h3></div></div>
+    <div class="stat-card glass-panel"><i class="fa-solid fa-user-tie"></i><div><span>Total Admins</span><h3>{{total_admins}}</h3></div></div>
+    <div class="stat-card glass-panel"><i class="fa-solid fa-users"></i><div><span>Total Users</span><h3>{{total_users}}</h3></div></div>
+    <div class="stat-card glass-panel"><i class="fa-solid fa-user-astronaut"></i><div><span>Customers</span><h3>{{customers}}</h3></div></div>
+    <div class="stat-card glass-panel"><i class="fa-regular fa-comments"></i><div><span>Messages</span><h3>{{messages}}</h3></div></div>
 </div>
 
 <div class="section-head">

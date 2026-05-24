@@ -47,21 +47,6 @@ function updateThemeIcon(theme){
     icon.className = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
 }
 
-function setupPasswordToggles(){
-    document.querySelectorAll('.password-toggle').forEach(button => {
-        button.addEventListener('click', () => {
-            const targetId = button.getAttribute('data-target');
-            const input = document.getElementById(targetId);
-            const icon = button.querySelector('i');
-            if(!input || !icon) return;
-
-            const isHidden = input.type === 'password';
-            input.type = isHidden ? 'text' : 'password';
-            icon.className = isHidden ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye';
-        });
-    });
-}
-
 function setupPasswordValidation(){
     const password = document.getElementById('password');
     const confirmPassword = document.getElementById('cpassword');
