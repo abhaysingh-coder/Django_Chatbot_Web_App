@@ -47,7 +47,7 @@ def user_profile(request):
     return render(request,'user-profile.html', {'user': user})
 
 
-@decorators.login_required_role(['admin', 'user'])
+# @decorators.login_required_role(['admin', 'user'])
 def delete_data(request, fro, role, username):
     logged_role = request.session.get('role')
     logged_username = request.session.get('username')
