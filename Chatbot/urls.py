@@ -22,7 +22,5 @@ urlpatterns = [
     path('', include('mainapp.mainurls')),
     path('customers/', include(('Customer.customerurls', 'Customer'))),
     path('admins/', include(('Admin.adminurls', 'Admin'))),
-    path('users/', include(('User.userurls', 'User'))),
-
-    
+    path('users/', include(('User.userurls', 'User'))),    
 ]
