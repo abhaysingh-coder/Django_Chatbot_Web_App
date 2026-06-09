@@ -47,21 +47,25 @@ def user_profile(request):
     return render(request,'user-profile.html', {'user': user})
 
 @decorators.login_required_role(['admin', 'user'])
-def delete_data(request, username, role):
-    print(username)
-    print(role)
+def delete_data(request,fro, role, username):
+    if fro =='admin':
+        url = 'Admin'
+    elif fro == 'user':
+        url = 'User'
+    else:
+        return redirect('/')
     if role == 'admin':
         database = AdminRegistration
-        redirect_url = 'Admin:admin_management'
+        redirect_url = f'{url}:admin_management'
     elif role == 'user':
         database = UserRegistration
-        redirect_url = 'Admin:user_management'
+        redirect_url = f'{url}:user_management'
     elif role == 'customer':
         database = Customer
-        redirect_url = 'Admin:customer_management'
+        redirect_url = f'{url}:customer_management'
+    else:
+        return redirect('/')
     user = database.objects.filter(username=username).first()
-    print(user)
     if user:
         user.delete()
-        print("deleted")
     return redirect(redirect_url)
