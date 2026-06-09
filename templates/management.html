@@ -12,7 +12,7 @@
             {% for cust in customer %}
                 <tr>
                     <td>{{ forloop.counter }}</td><td>{{ cust.username }}</td><td>{{ cust.Name }}</td><td>{{ cust.email }}</td><td>{{ cust.phone_number }}</td><td>{{ cust.password }}</td>
-                    <td><a href="{% url 'User:delete_data' cust.username role %}" class="btn btn-soft-danger btn-sm panel-confirm" data-confirm="Remove this {{ role }}?">Remove</a></td>
+                    <td><a href="{% url 'User:delete_data' request.session.role role cust.username  %}" class="btn btn-soft-danger btn-sm panel-confirm" data-confirm="Remove this {{ role }}?">Remove</a></td>
                 </tr>
             {% empty %}
                 <tr><td colspan="7" class="text-center panel-muted">No records found.</td></tr>
