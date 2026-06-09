@@ -10,5 +10,5 @@ urlpatterns = [
    path('request_by_chatbot/',views.request_by_chatbot,name='request_by_chatbot'),
    path('userbot/',views.userbot,name='userbot'),
    path('user_profile/',views.user_profile,name='user_profile'),
-   path('delete_data/<str: fro>/<str:role>/<str:username>',views.delete_data,name='delete_data'),
+   path('delete_data/<str:fro>/<str:role>/<str:username>',views.delete_data,name='delete_data'),
 ]
