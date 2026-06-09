@@ -46,7 +46,7 @@ def user_profile(request):
     user = UserRegistration.objects.filter(email=email).first()
     return render(request,'user-profile.html', {'user': user})
 
-@decorators.login_required_role('user')
+@decorators.login_required_role('admin')
 def delete_data(request, username, role):
     print(username)
     print(role)
