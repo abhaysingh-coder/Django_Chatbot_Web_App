@@ -46,26 +46,27 @@ def user_profile(request):
     user = UserRegistration.objects.filter(email=email).first()
     return render(request,'user-profile.html', {'user': user})
 
+
 @decorators.login_required_role(['admin', 'user'])
-def delete_data(request,fro, role, username):
-    if fro =='admin':
-        url = 'Admin'
-    elif fro == 'user':
-        url = 'User'
-    else:
-        return redirect('/')
-    if role == 'admin':
-        database = AdminRegistration
-        redirect_url = f'{url}:admin_management'
-    elif role == 'user':
-        database = UserRegistration
-        redirect_url = f'{url}:user_management'
-    elif role == 'customer':
-        database = Customer
-        redirect_url = f'{url}:customer_management'
-    else:
-        return redirect('/')
+def delete_data(request, fro, role, username):
+    logged_role = request.session.get('role')
+    logged_username = request.session.get('username')
+    if logged_username == username:
+        return redirect(f'{fro.title()}:profile')
+    app_names = {
+        'admin': 'Admin',
+        'user': 'User',
+    }
+    models = {
+        'admin': (AdminRegistration, 'admin_management'),
+        'user': (UserRegistration, 'user_management'),
+        'customer': (Customer, 'customer_management'),
+    }
+    if fro not in app_names or role not in models:
+        return redirect('login')
+    app_name = app_names[fro]
+    database, page = models[role]
     user = database.objects.filter(username=username).first()
     if user:
         user.delete()
-    return redirect(redirect_url)
+    return redirect(f'{app_name}:{page}')
